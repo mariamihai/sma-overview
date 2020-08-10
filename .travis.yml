@@ -16,7 +16,7 @@ script:
   - mvn -f pom.xml clean verify -Pdocker
 
 after_success:
-  - docker build -t $TRAVIS_REPO_SLUG:latest .
+  - docker build -f ./src/main/docker/Dockerfile -t $TRAVIS_REPO_SLUG:latest .
   - docker tag $TRAVIS_REPO_SLUG:latest $TRAVIS_REPO_SLUG:$TRAVIS_BUILD_NUMBER
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
