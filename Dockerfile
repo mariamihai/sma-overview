@@ -1,5 +1,9 @@
 FROM openjdk:11-jre-slim
-ADD ./target/${project.build.finalName}.jar ${project.build.finalName}.jar
+
+ARG JAR_FILE
+ARG ARTIFACT_ID
+
+ADD ./target/${JAR_FILE} ${ARTIFACT_ID}.jar
 
 EXPOSE 8080
 
