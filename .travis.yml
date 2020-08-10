@@ -17,7 +17,7 @@ script:
 
 after_success:
   - echo "$(ls)"
-  - docker build -f $HOME/src/main/docker/Dockerfile -t $TRAVIS_REPO_SLUG:latest .
+  - docker build -t $TRAVIS_REPO_SLUG:latest .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push
 
