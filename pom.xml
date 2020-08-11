@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.thoughtmechanix</groupId>
-    <artifactId>licensing-service</artifactId>
+    <artifactId>sma-licensing-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>licensing-service</name>
     <description>Licensing Service based on 'Spring Microservices in Action' book.</description>

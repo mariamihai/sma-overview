@@ -3,7 +3,7 @@ FROM openjdk:11-jre-slim
 ARG JAR_FILE
 ARG ARTIFACT_ID
 
-ADD target/${JAR_FILE} ${REPO_NAME}.jar
+ADD ./target/${JAR_FILE} ${REPO_NAME}.jar
 
 RUN echo $(ls)
 
