@@ -20,19 +20,13 @@ notifications:
     on_success: never # default: change
     on_failure: always # default: always
 
-env:
-  global:
-    - USERNAME=$TRAVIS_REPO_SLUG | cut -d'/' -f 1
-    - REPO=$TRAVIS_REPO_SLUG | cut -d'/' -f 1
-
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
   - mvn clean package
-  - echo $USERNAME
-  - echo $REPO
+  - echo $PROJECT
 
-  - docker build -f ./src/main/docker/Dockerfile --build-arg BUILD_ARG=abc -t $TRAVIS_REPO_SLUG:latest .
+  - docker build -f ./src/main/docker/Dockerfile --build-arg REPO_NAME=$PROJECT -t $TRAVIS_REPO_SLUG:latest .
   - docker tag $TRAVIS_REPO_SLUG:latest $TRAVIS_REPO_SLUG:$TRAVIS_BUILD_NUMBER
 
   - docker push $TRAVIS_REPO_SLUG:latest
