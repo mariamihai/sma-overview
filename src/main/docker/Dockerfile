@@ -4,6 +4,7 @@ ARG JAR_FILE
 ARG ARTIFACT_ID
 
 RUN echo $(ls)
+RUN echo $(pwd)
 
 ADD target/${JAR_FILE} ${REPO_NAME}.jar
 
