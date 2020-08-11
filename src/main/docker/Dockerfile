@@ -3,8 +3,8 @@ FROM openjdk:11-jre-slim
 ARG ARTIFACT_ID
 ARG VERSION
 
-ADD target/${ARTIFACT_ID}.jar ${ARTIFACT_ID}.jar
-#ADD target/${ARTIFACT_ID}-${VERSION}.jar ${ARTIFACT_ID}.jar
+#ADD target/${ARTIFACT_ID}.jar ${ARTIFACT_ID}.jar
+ADD target/${ARTIFACT_ID}-${VERSION}.jar ${ARTIFACT_ID}.jar
 
 RUN echo $(ls)
 
