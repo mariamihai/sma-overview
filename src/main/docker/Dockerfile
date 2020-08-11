@@ -6,8 +6,10 @@ ARG ARTIFACT_ID
 RUN echo $(ls)
 RUN echo $(pwd)
 
-ADD target/docker/mariamihai/sma-licensing-service/build/maven/${JAR_FILE} ${REPO_NAME}.jar
+ADD maven/${JAR_FILE} ${ARTIFACT_ID}.jar
 
+RUN echo $(find ./ -name "*SNAPSHOT.jar")
+RUN echo $(find ./ -name "*licensing-service.jar")
 RUN echo $(ls)
 
 EXPOSE 8080
