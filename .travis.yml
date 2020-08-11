@@ -23,8 +23,11 @@ script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
   - mvn clean package
+
+  - echo ${TRAVIS_HOME}
   - echo "$(pwd)"
   - echo "$(ls)"
+
   - mvn docker:build
 
 #  - docker build -f ./src/main/docker/Dockerfile --build-arg ARTIFACT_ID=$ARTIFACT --build-arg VERSION=$PROJECT_VERSION -t $TRAVIS_REPO_SLUG:latest .

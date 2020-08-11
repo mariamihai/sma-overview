@@ -111,7 +111,6 @@
                         <ARTIFACT_ID>${project.artifactId}</ARTIFACT_ID>
                         <JAR_FILE>${project.artifactId}-${project.version}.jar</JAR_FILE>
                     </buildArgs>
-                    <outputDirectory>${basedir}/target/dockerfile</outputDirectory>
                     <images>
                         <image>
                             <name>${docker.image.prefix}/${docker.image.name}</name>
