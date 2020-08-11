@@ -6,7 +6,7 @@ ARG ARTIFACT_ID
 RUN echo $(ls)
 RUN echo $(pwd)
 
-ADD maven/${JAR_FILE} ${REPO_NAME}.jar
+ADD ./maven/${JAR_FILE} ${REPO_NAME}.jar
 
 RUN echo $(ls)
 
