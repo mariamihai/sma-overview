@@ -1,6 +1,6 @@
 FROM openjdk:11-jre-slim
 
-RUN echo ls
+RUN echo $(ls)
 
 ARG JAR_FILE
 ARG ARTIFACT_ID
