@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11
+FROM openjdk:11-jre-slim
 
 ARG JAR_FILE
 ARG ARTIFACT_ID
@@ -6,7 +6,7 @@ ARG ARTIFACT_ID
 RUN echo $(ls)
 RUN echo $(pwd)
 
-ADD ./maven/${JAR_FILE} ${REPO_NAME}.jar
+ADD maven/${JAR_FILE} ${REPO_NAME}.jar
 
 RUN echo $(ls)
 
