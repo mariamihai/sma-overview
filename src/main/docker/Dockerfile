@@ -3,6 +3,9 @@ FROM openjdk:11-jre-slim
 ARG JAR_FILE
 ARG ARTIFACT_ID
 
+RUN echo ${JAR_FILE}
+RUN echo ${ARTIFACT_ID}
+
 ADD target/${JAR_FILE} ${ARTIFACT_ID}.jar
 
 RUN echo $(ls)
