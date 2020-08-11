@@ -6,7 +6,7 @@ ARG ARTIFACT_ID
 RUN echo ${JAR_FILE}
 RUN echo ${ARTIFACT_ID}
 
-ADD target/${JAR_FILE} ${ARTIFACT_ID}.jar
+ADD target/${project.artifactId}-${project.version}.jar ${project.artifactId}.jar
 
 RUN echo $(ls)
 
