@@ -22,8 +22,8 @@ notifications:
 
 env:
   global:
-    - USERNAME=$TRAVIS_REPO_SLUG | | cut -d'/' -f 1
-    - REPO=$TRAVIS_REPO_SLUG | | cut -d'/' -f 1
+    - USERNAME=$TRAVIS_REPO_SLUG | cut -d'/' -f 1
+    - REPO=$TRAVIS_REPO_SLUG | cut -d'/' -f 1
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
