@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mariamihai/sma-licensing-service.svg?branch=master)](https://travis-ci.org/mariamihai/sma-licensing-service)
+
 # Spring Microservices in Action - Licensing Service
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
@@ -44,4 +46,6 @@ Calling the service to obtain license information based on an organization id an
         "path": "/v1/organizations/9157b03b-1a6c-43a8-a31b-d39eebf9654b/licenses/aaaa"
     }
     ```
- 
+
+## Docker Image
+Project Docker Image [here](https://hub.docker.com/repository/docker/mariamihai/sma-licensing-service).
