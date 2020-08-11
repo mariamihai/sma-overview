@@ -31,7 +31,7 @@ RUN echo $(ls)
 
 EXPOSE 8080
 
-RUN java -Djarmode=layertools -jar application.jar extract
+RUN java -Djarmode=layertools -jar ${ARTIFACT_ID}.jar extract
 
 FROM openjdk:11-jre-slim
 WORKDIR application
