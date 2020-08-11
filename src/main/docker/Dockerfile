@@ -9,4 +9,4 @@ ADD ./target/${JAR_FILE} ${ARTIFACT_ID}.jar
 
 EXPOSE 8888
 
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "org.springframework.boot.loader.JarLauncher"]
+ENTRYPOINT ["java", "-jar", "${ARTIFACT_ID}.jar"]
