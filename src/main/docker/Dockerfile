@@ -9,4 +9,4 @@ ADD ./target/${JAR_FILE} ${ARTIFACT_ID}.jar
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "${ARTIFACT_ID}.jar"]
+ENTRYPOINT ["java", "-jar", "./@project.artifactId@.jar"]
