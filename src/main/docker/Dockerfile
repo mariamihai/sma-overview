@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk-alpine
+FROM adoptopenjdk/openjdk11
 
 ARG JAR_FILE
 ARG ARTIFACT_ID
