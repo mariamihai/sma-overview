@@ -1,0 +1,32 @@
+language: java
+
+## safelist
+#branches:
+#  only:
+#    - master
+
+services:
+  - docker
+
+cache:
+  directories:
+    - $HOME/.m2/repository
+
+script:
+  - mvn -f pom.xml clean verify -Pdocker
+
+after_success:
+  - docker build -f ./src/main/docker/Dockerfile -t $TRAVIS_REPO_SLUG:latest .
+  - docker tag $TRAVIS_REPO_SLUG:latest $TRAVIS_REPO_SLUG:$TRAVIS_BUILD_NUMBER
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+  - docker push $TRAVIS_REPO_SLUG:latest
+  - docker push $TRAVIS_REPO_SLUG:$TRAVIS_BUILD_NUMBER
+
+notifications:
+  email:
+    recipients:
+      - maria.ic.mihai@gmail.com
+    on_success: never # default: change
+    on_failure: always # default: always
