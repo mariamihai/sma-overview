@@ -8,10 +8,9 @@ RUN echo $(pwd)
 
 ADD maven/${JAR_FILE} ${ARTIFACT_ID}.jar
 
-RUN echo $(find ./ -name "*SNAPSHOT.jar")
-RUN echo $(find ./ -name "*licensing-service.jar")
+RUN sleep 5
 RUN echo $(ls)
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "org.springframework.boot.loader.JarLauncher"]
+#ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "org.springframework.boot.loader.JarLauncher"]
