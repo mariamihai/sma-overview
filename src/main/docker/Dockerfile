@@ -13,4 +13,5 @@ RUN echo $(ls)
 
 EXPOSE 8080
 
-#ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "org.springframework.boot.loader.JarLauncher"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", ${ARTIFACT_ID}.jar]
+
