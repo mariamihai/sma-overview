@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.thoughtmechanix</groupId>
-    <artifactId>configuration-service</artifactId>
+    <artifactId>sma-configuration-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>configuration-service</name>
     <description>Configuration Service based on 'Spring Microservices in Action' book.</description>
