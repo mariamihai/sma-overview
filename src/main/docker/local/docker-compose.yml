@@ -8,7 +8,7 @@ services:
   #      POSTGRES_USER: "postgres"
   #      POSTGRES_PASSWORD: "p0stgr@s"
   #      POSTGRES_DB: "eagle_eye_local"
-  configserver:
+  configservice:
     image: mariamihai/sma-configuration-service
     ports:
       - "8888:8888"
@@ -19,7 +19,7 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - configserver
+      - configservice
 #      - database
     environment:
       SPRING_PROFILES_ACTIVE: "default"
