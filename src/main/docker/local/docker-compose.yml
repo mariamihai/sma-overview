@@ -12,8 +12,8 @@ services:
     image: mariamihai/sma-configuration-service
     ports:
       - "8888:8888"
-    environment:
-#      ENCRYPT_KEY: "MySuperExtremelySecretKey"
+    env_file:
+      - local.env
   licensingservice:
     image: mariamihai/sma-licensing-service
     ports:
@@ -23,3 +23,5 @@ services:
 #      - database
     environment:
       SPRING_PROFILES_ACTIVE: "default"
+    env_file:
+      - local.env
