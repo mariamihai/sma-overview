@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.thoughtmechanix</groupId>
-    <artifactId>configuration-service</artifactId>
+    <artifactId>sma-configuration-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>configuration-service</name>
     <description>Configuration Service based on 'Spring Microservices in Action' book.</description>
@@ -26,6 +26,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
@@ -64,7 +69,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <layers>
+                        <enabled>true</enabled>
+                        <includeLayerTools>true</includeLayerTools>
+                    </layers>
+                </configuration>
             </plugin>
+
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>

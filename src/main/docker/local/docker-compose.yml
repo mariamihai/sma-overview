@@ -1,23 +1,27 @@
 version: '2'
 services:
-  configserver:
+  #  database:
+  #    image: postgres
+  #    ports:
+  #      - "5432:5432"
+  #    environment:
+  #      POSTGRES_USER: "postgres"
+  #      POSTGRES_PASSWORD: "p0stgr@s"
+  #      POSTGRES_DB: "eagle_eye_local"
+  configservice:
     image: mariamihai/sma-configuration-service
     ports:
       - "8888:8888"
-  database:
-    image: postgres:9.5
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "p0stgr@s"
-      POSTGRES_DB:       "eagle_eye_local"
+    env_file:
+      - local.env
   licensingservice:
     image: mariamihai/sma-licensing-service
     ports:
       - "8080:8080"
+    depends_on:
+      - configservice
+#      - database
     environment:
-      PROFILE: "default"
-      CONFIGSERVER_URI: "http://configserver:8888"
-      CONFIGSERVER_PORT:   "8888"
-      DATABASESERVER_PORT: "5432"
+      SPRING_PROFILES_ACTIVE: "default"
+    env_file:
+      - local.env

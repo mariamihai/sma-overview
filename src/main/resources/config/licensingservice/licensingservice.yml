@@ -1,3 +1,0 @@
-tracer.property: "I AM THE DEFAULT"
-spring.datasource.username: postgres
-spring.datasource.password: "passw@rdcd"
