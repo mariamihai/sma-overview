@@ -33,6 +33,7 @@ public class LicenseServiceImpl implements LicenseService {
     @Override
     public List<LicenseDto> getLicensesByOrg(UUID organizationId) {
         List<License> licenses = licenseRepository.findByOrganizationId(organizationId);
+        licenses.stream().forEach(license -> license.setComment(serviceConfig.getExampleProperty()));
 
         return licenses.stream()
                 .map(licenseMapper::licenseToDto)
