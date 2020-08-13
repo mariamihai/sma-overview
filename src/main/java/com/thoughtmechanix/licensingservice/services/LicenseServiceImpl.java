@@ -1,5 +1,6 @@
 package com.thoughtmechanix.licensingservice.services;
 
+import com.thoughtmechanix.licensingservice.config.ServiceConfig;
 import com.thoughtmechanix.licensingservice.domain.License;
 import com.thoughtmechanix.licensingservice.repositories.LicenseRepository;
 import com.thoughtmechanix.licensingservice.web.mappers.LicenseMapper;
@@ -19,9 +20,12 @@ public class LicenseServiceImpl implements LicenseService {
     private final LicenseRepository licenseRepository;
     private final LicenseMapper licenseMapper;
 
+    private final ServiceConfig serviceConfig;
+
     @Override
     public LicenseDto getLicense(UUID organizationId, UUID licenseId) {
         License license = licenseRepository.findByOrganizationIdAndLicenseId(organizationId, licenseId);
+        license.setComment(serviceConfig.getExampleProperty());
 
         return licenseMapper.licenseToDto(license);
     }
