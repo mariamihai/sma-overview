@@ -6,8 +6,14 @@ The project represents my implementation based on the "Spring Microservices in A
 ## API Version
 Currently the application is at _v1_.
 
-## Chapter 2
-Chapter 2 contains the initial description of the licensing service.
+## Run
+Run with encryption key or from the docker-compose file (currently in the Configuration Service).
+```
+mvn spring-boot:run -Dspring-boot.run.arguments=--encrypt.key=MySuperExtremelySecretKey
+```
+### Running locally
+Profile active = local
+
 
 ### API calls
 #### Obtain license information
