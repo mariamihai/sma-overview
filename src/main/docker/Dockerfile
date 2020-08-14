@@ -12,7 +12,7 @@ RUN java -Djarmode=layertools -jar ${ARTIFACT_ID}.jar extract
 
 FROM openjdk:11-jre-slim
 
-EXPOSE 8080
+EXPOSE 8888
 
 WORKDIR application
 
