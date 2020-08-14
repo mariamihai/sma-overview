@@ -8,20 +8,31 @@ services:
   #      POSTGRES_USER: "postgres"
   #      POSTGRES_PASSWORD: "p0stgr@s"
   #      POSTGRES_DB: "eagle_eye_local"
-  configservice:
-    image: mariamihai/sma-configuration-service
+  eureka:
+    image: mariamihai/sma-eureka-service:latest
     ports:
-      - "8888:8888"
+      - 8761:8761
+  config-service:
+    image: mariamihai/sma-configuration-service:latest
+    ports:
+      - 8888:8888
+    depends_on:
+      - eureka
     env_file:
       - local.env
-  licensingservice:
-    image: mariamihai/sma-licensing-service
+    environment:
+      SPRING_PROFILES_ACTIVE: "native, local-docker"
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
+  licensing-service:
+    image: mariamihai/sma-licensing-service:latest
     ports:
-      - "8080:8080"
+      - 8080:8080
     depends_on:
-      - configservice
+      - eureka
+      - config-service
 #      - database
     environment:
-      SPRING_PROFILES_ACTIVE: "default"
+      SPRING_PROFILES_ACTIVE: "local-docker"
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
     env_file:
       - local.env
