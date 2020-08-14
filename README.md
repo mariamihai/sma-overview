@@ -16,3 +16,6 @@ Currently the application is at _v1_.
 
 ## Docker Image
 Project Docker Image [here](https://hub.docker.com/repository/docker/mariamihai/sma-configuration-service).
+
+### Articles
+- [here](https://medium.com/@athulravindran/spring-cloud-config-server-discovery-first-vs-config-first-72cc6a56f471)
