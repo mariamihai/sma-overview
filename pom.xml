@@ -12,7 +12,7 @@
     <groupId>com.thoughtmechanix</groupId>
     <artifactId>sma-eureka-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sma-eureka-service</name>
+    <name>eureka-service</name>
     <description>Eureka Service based on 'Spring Microservices in Action' book.</description>
 
     <properties>
