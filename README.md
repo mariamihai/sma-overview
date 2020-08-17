@@ -10,10 +10,12 @@ Currently the application is at _v1_.
 - server.port is set as environment properties to force setting of port in docker-compose (defaults to 8080)
 
 ## Run
-Run with encryption key or from the docker-compose file (currently in the Configuration Service).
+Run with encryption key or from the docker-compose file, which sets the encrypt.key property.
 ```
 mvn spring-boot:run -Dspring-boot.run.arguments=--encrypt.key=MySuperExtremelySecretKey
 ```
+Set server.profile as well, otherwise the default will be set.
+
 ### Running locally
 Profile active = local
 ### Running with Docker
