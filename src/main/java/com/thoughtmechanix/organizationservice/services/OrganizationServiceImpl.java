@@ -8,6 +8,8 @@ import com.thoughtmechanix.organizationservice.web.model.OrganizationDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -17,6 +19,16 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     private final OrganizationRepository repository;
     private final OrganizationMapper mapper;
+
+    @Override
+    public List<OrganizationDto> getAllOrganizations() {
+        Iterable<Organization> all = repository.findAll();
+
+        List<OrganizationDto> dtos = new ArrayList<>();
+        all.forEach(entity -> dtos.add(mapper.organizationToDto(entity)));
+
+        return dtos;
+    }
 
     @Override
     public OrganizationDto getOrganization(UUID id) {

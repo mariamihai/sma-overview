@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -16,8 +17,13 @@ public class OrganizationController {
 
     private final OrganizationService organizationService;
 
-    @GetMapping(value = "/{organizationId")
-    public OrganizationDto getOrganization(@PathVariable("organizationId") UUID id) {
+    @GetMapping
+    public List<OrganizationDto> getAllOrganizations() {
+        return organizationService.getAllOrganizations();
+    }
+
+    @GetMapping("/{id}")
+    public OrganizationDto getOrganization(@PathVariable("id") UUID id) {
         return organizationService.getOrganization(id);
     }
 
