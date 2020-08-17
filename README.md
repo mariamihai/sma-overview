@@ -6,6 +6,8 @@ The project represents my implementation based on the "Spring Microservices in A
 ## API Version
 Currently the application is at _v1_.
 
+## Environment properties
+- server.port is set as environment properties to force setting of port in docker-compose (otherwise defaults to 8888)
 
 ## Implementation
 ### Active profiles
