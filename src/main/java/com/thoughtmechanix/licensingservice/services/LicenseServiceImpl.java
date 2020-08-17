@@ -5,6 +5,7 @@ import com.thoughtmechanix.licensingservice.domain.License;
 import com.thoughtmechanix.licensingservice.exceptions.NotFoundException;
 import com.thoughtmechanix.licensingservice.repositories.LicenseRepository;
 import com.thoughtmechanix.licensingservice.services.organization.OrganizationService;
+import com.thoughtmechanix.licensingservice.services.organization.OrganizationServiceRibbonAwareImpl;
 import com.thoughtmechanix.licensingservice.services.organization.OrganizationServiceServiceDiscoveryImpl;
 import com.thoughtmechanix.licensingservice.web.mappers.LicenseMapper;
 import com.thoughtmechanix.licensingservice.web.model.LicenseDto;
@@ -26,6 +27,7 @@ public class LicenseServiceImpl implements LicenseService {
 
     // Wiring all OrganizationService implementations and have available all the implementations by clientType
     private final OrganizationServiceServiceDiscoveryImpl serviceDiscovery;
+    private final OrganizationServiceRibbonAwareImpl ribbonAware;
 
     @Override
     public LicenseDto getLicense(UUID organizationId, UUID licenseId, String clientType) {
@@ -39,6 +41,9 @@ public class LicenseServiceImpl implements LicenseService {
 
         if("discovery".equals(clientType)) {
             licenseDto.setOrganizationDto(serviceDiscovery.getOrganization(organizationId));
+        }
+        if("ribbon".equals(clientType)) {
+            licenseDto.setOrganizationDto(ribbonAware.getOrganization(organizationId));
         }
 
         return licenseDto;
