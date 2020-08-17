@@ -6,6 +6,9 @@ The project represents my implementation based on the "Spring Microservices in A
 ## API Version
 Currently the application is at _v1_.
 
+## Environment properties
+- server.port is set as environment properties to force setting of port in docker-compose (default 8080)
+
 ## Run
 Run with encryption key or from the docker-compose file (currently in the Configuration Service).
 ```
