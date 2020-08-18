@@ -1,5 +1,6 @@
 package com.thoughtmechanix.licensingservice.services;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.thoughtmechanix.licensingservice.config.ServiceConfig;
 import com.thoughtmechanix.licensingservice.domain.License;
 import com.thoughtmechanix.licensingservice.exceptions.NotFoundException;
@@ -14,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -61,7 +63,11 @@ public class LicenseServiceImpl implements LicenseService {
     }
 
     @Override
+    // Use Hystrix circuit breaker to wrap the calls to the db
+    @HystrixCommand
     public List<LicenseDto> getLicensesByOrg(UUID organizationId) {
+//        simulateDatabaseRunningSlowly();
+
         List<License> licenses = repository.findByOrganizationId(organizationId);
         licenses.forEach(license -> license.setComment(serviceConfig.getExampleProperty()));
 
@@ -80,5 +86,23 @@ public class LicenseServiceImpl implements LicenseService {
 
     protected void validateLicense(License license) {
         if(license == null) throw new NotFoundException("License doesn't exist.");
+    }
+
+    protected void simulateDatabaseRunningSlowly() {
+        Random random = new Random();
+        // 50% chances of getting a slow database query
+        int randomInt = random.nextInt(3);
+
+        if(randomInt == 2) {
+            sleepTenSeconds();
+        }
+    }
+
+    protected void sleepTenSeconds() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
