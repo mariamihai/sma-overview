@@ -22,15 +22,16 @@ Profile active = local
 #### Obtain license information
 Calling the service to obtain license information based on an organization id and license id.
 
- * __URI:__ _v1/organizations/:organizationId/licenses/:id_
-
+ * __URI:__ _v1/organizations/:organizationId/licenses/:id/?clientType=:clientType
  * __Method:__ _GET_
 
  * __URL params:__ <br/>
     * required: <br/>
         `organizationId=[uuid]` <br/>
         `id=[uuid]`
-    * optional: -
+    * optional: <br/>
+        `clientType=[uuid]` <br/>
+        Possible values: `discovery` (default), `ribbon`, `feign`.
     
  * __Success response:__
     * Code: 200 <br/>

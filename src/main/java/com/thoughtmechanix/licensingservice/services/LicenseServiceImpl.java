@@ -4,12 +4,13 @@ import com.thoughtmechanix.licensingservice.config.ServiceConfig;
 import com.thoughtmechanix.licensingservice.domain.License;
 import com.thoughtmechanix.licensingservice.exceptions.NotFoundException;
 import com.thoughtmechanix.licensingservice.repositories.LicenseRepository;
-import com.thoughtmechanix.licensingservice.services.organization.OrganizationService;
+import com.thoughtmechanix.licensingservice.services.organization.OrganizationServiceFeignImpl;
 import com.thoughtmechanix.licensingservice.services.organization.OrganizationServiceRibbonAwareImpl;
 import com.thoughtmechanix.licensingservice.services.organization.OrganizationServiceServiceDiscoveryImpl;
 import com.thoughtmechanix.licensingservice.web.mappers.LicenseMapper;
 import com.thoughtmechanix.licensingservice.web.model.LicenseDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,8 +18,10 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class LicenseServiceImpl implements LicenseService {
+
 
     private final LicenseRepository repository;
     private final LicenseMapper licenseMapper;
@@ -28,6 +31,8 @@ public class LicenseServiceImpl implements LicenseService {
     // Wiring all OrganizationService implementations and have available all the implementations by clientType
     private final OrganizationServiceServiceDiscoveryImpl serviceDiscovery;
     private final OrganizationServiceRibbonAwareImpl ribbonAware;
+    private final OrganizationServiceFeignImpl feign;
+
 
     @Override
     public LicenseDto getLicense(UUID organizationId, UUID licenseId, String clientType) {
@@ -40,10 +45,16 @@ public class LicenseServiceImpl implements LicenseService {
         LicenseDto licenseDto = licenseMapper.licenseToDto(license);
 
         if("discovery".equals(clientType)) {
+            log.debug("Using the ServiceDiscovery method of getting the organization data.");
             licenseDto.setOrganizationDto(serviceDiscovery.getOrganization(organizationId));
         }
         if("ribbon".equals(clientType)) {
+            log.debug("Using the Ribbon-aware RestTemplate for getting the organization data.");
             licenseDto.setOrganizationDto(ribbonAware.getOrganization(organizationId));
+        }
+        if("feign".equals(clientType)) {
+            log.debug("Using Feign client for getting the organization data.");
+            licenseDto.setOrganizationDto(feign.getOrganization(organizationId));
         }
 
         return licenseDto;
