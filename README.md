@@ -6,22 +6,32 @@ The project represents my implementation based on the "Spring Microservices in A
 ## API Version
 Currently the application is at _v1_.
 
-## Chapter 2
-Chapter 2 contains the initial description of the licensing service.
+## Environment properties
+- server.port is set as environment properties to force setting of port in docker-compose (default 8080)
+
+## Run
+Run with encryption key or from the docker-compose file (currently in the Configuration Service).
+```
+mvn spring-boot:run -Dspring-boot.run.arguments=--encrypt.key=MySuperExtremelySecretKey
+```
+### Running locally
+Profile active = local
+
 
 ### API calls
 #### Obtain license information
 Calling the service to obtain license information based on an organization id and license id.
 
- * __URI:__ _v1/organizations/:organizationId/licenses/:id_
-
+ * __URI:__ _v1/organizations/:organizationId/licenses/:id/?clientType=:clientType
  * __Method:__ _GET_
 
  * __URL params:__ <br/>
     * required: <br/>
         `organizationId=[uuid]` <br/>
         `id=[uuid]`
-    * optional: -
+    * optional: <br/>
+        `clientType=[uuid]` <br/>
+        Possible values: `discovery` (default), `ribbon`, `feign`.
     
  * __Success response:__
     * Code: 200 <br/>

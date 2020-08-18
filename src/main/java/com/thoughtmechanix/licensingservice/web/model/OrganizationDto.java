@@ -11,15 +11,13 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class LicenseDto {
+public class OrganizationDto {
 
-    private UUID licenseId;
+    UUID id;
 
-    private UUID organizationId;
-    private OrganizationDto organizationDto;
+    String organizationName;
 
-    private String productName;
-    private String licenseType;
-
-    private String comment;
+    String contactName;
+    String contactEmail;
+    String contactPhone;
 }

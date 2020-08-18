@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public interface LicenseService {
 
-    LicenseDto getLicense(UUID organizationId, UUID licenseId);
+    LicenseDto getLicense(UUID organizationId, UUID licenseId, String clientType);
     List<LicenseDto> getLicensesByOrg(UUID organizationId);
     void saveLicense(LicenseDto dto);
 }
