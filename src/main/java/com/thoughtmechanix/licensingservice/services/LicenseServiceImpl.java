@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -65,14 +66,17 @@ public class LicenseServiceImpl implements LicenseService {
 
     @Override
     // Use Hystrix circuit breaker to wrap the calls to the db
-    @HystrixCommand(
-        commandProperties = {
-                @HystrixProperty(
-                    name = "execution.isolation.thread.timeoutInMilliseconds",
-                    value = "12000"
-                )
-            }
-    )
+    // Use custom timeout
+//    @HystrixCommand(
+//        commandProperties = {
+//                @HystrixProperty(
+//                    name = "execution.isolation.thread.timeoutInMilliseconds",
+//                    value = "12000"
+//                )
+//            }
+//    )
+    // Use fallback method
+    @HystrixCommand(fallbackMethod = "buildFallbackLicenseList")
     public List<LicenseDto> getLicensesByOrg(UUID organizationId) {
 //        simulateDatabaseRunningSlowly();
 
@@ -82,6 +86,19 @@ public class LicenseServiceImpl implements LicenseService {
         return licenses.stream()
                 .map(licenseMapper::licenseToDto)
                 .collect(Collectors.toList());
+    }
+
+    private List<LicenseDto> buildFallbackLicenseList(UUID organizationId) {
+        List<LicenseDto> fallbackList = new ArrayList<>();
+
+        LicenseDto dto = LicenseDto.builder()
+                .licenseId(UUID.fromString("00000000-0000-0000-0000-000000000000"))
+                .organizationId(organizationId)
+                .productName("Sorry, no licensing information currently available")
+                .build();
+        fallbackList.add(dto);
+
+        return fallbackList;
     }
 
     @Override
