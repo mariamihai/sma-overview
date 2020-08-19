@@ -24,6 +24,15 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 @RequiredArgsConstructor
+// Adding default parameters for Hystrix for the service class
+//@DefaultProperties(
+//    commandProperties = {
+//        @HystrixProperty(
+//            name = "execution.isolation.thread.timeoutInMilliseconds",
+//            value = "12000"
+//        )
+//    }
+//)
 public class LicenseServiceImpl implements LicenseService {
 
 
