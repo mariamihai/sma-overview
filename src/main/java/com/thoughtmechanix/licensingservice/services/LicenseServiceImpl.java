@@ -1,6 +1,7 @@
 package com.thoughtmechanix.licensingservice.services;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.thoughtmechanix.licensingservice.config.ServiceConfig;
 import com.thoughtmechanix.licensingservice.domain.License;
 import com.thoughtmechanix.licensingservice.exceptions.NotFoundException;
@@ -64,7 +65,14 @@ public class LicenseServiceImpl implements LicenseService {
 
     @Override
     // Use Hystrix circuit breaker to wrap the calls to the db
-    @HystrixCommand
+    @HystrixCommand(
+        commandProperties = {
+                @HystrixProperty(
+                    name = "execution.isolation.thread.timeoutInMilliseconds",
+                    value = "12000"
+                )
+            }
+    )
     public List<LicenseDto> getLicensesByOrg(UUID organizationId) {
 //        simulateDatabaseRunningSlowly();
 
