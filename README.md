@@ -59,3 +59,8 @@ Calling the service to obtain license information based on an organization id an
 
 ## Docker Image
 Project Docker Image [here](https://hub.docker.com/repository/docker/mariamihai/sma-licensing-service).
+
+## Articles
+- [Feign error handling](https://www.appsdeveloperblog.com/feign-error-handling-with-errordecoder/)
+- [Hystrix Configuration](https://github.com/Netflix/Hystrix/wiki/Configuration)
+- [Resilience4j](https://github.com/resilience4j/resilience4j)
