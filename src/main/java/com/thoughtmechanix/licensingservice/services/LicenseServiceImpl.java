@@ -76,7 +76,16 @@ public class LicenseServiceImpl implements LicenseService {
 //            }
 //    )
     // Use fallback method
-    @HystrixCommand(fallbackMethod = "buildFallbackLicenseList")
+//    @HystrixCommand(fallbackMethod = "buildFallbackLicenseList")
+    // Implement the bulkhead pattern
+    @HystrixCommand(
+        fallbackMethod = "buildFallbackLicenseList",
+        threadPoolKey = "licenseByOrgThreadPool",
+        threadPoolProperties = {
+            @HystrixProperty(name = "coreSize", value = "30"),
+            @HystrixProperty(name = "maxQueueSize", value = "10")
+        }
+    )
     public List<LicenseDto> getLicensesByOrg(UUID organizationId) {
 //        simulateDatabaseRunningSlowly();
 
