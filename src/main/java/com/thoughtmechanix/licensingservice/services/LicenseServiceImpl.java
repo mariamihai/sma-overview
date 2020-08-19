@@ -84,6 +84,19 @@ public class LicenseServiceImpl implements LicenseService {
         threadPoolProperties = {
             @HystrixProperty(name = "coreSize", value = "30"),
             @HystrixProperty(name = "maxQueueSize", value = "10")
+        },
+        // Adding custom circuit breaker behavior
+        commandProperties = {
+            // the minimum of consecutive calls that must occur within the window
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
+            // the percentage of calls that must fail
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "75"),
+            // the amount of time Hystrix sleeps before checking to see if the service is healthy again
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "7000"),
+            // window size (default is 10 seconds - 10000 milliseconds)
+            @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "15000"),
+            // the number of times statistics are collected in the defined window
+            @HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "5")
         }
     )
     public List<LicenseDto> getLicensesByOrg(UUID organizationId) {
