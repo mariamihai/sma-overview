@@ -6,14 +6,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-public class TrackingFilter extends ZuulFilter {
+public class ResponseFilter extends ZuulFilter {
 
     private static final int FILTER_ORDER = 1;
     private static final boolean SHOULD_BE_ACTIVE = true;
 
     @Override
     public String filterType() {
-        return FilterUtils.PRE_FILTER_TYPE;
+        return FilterUtils.POST_FILTER_TYPE;
     }
 
     @Override
@@ -28,13 +28,7 @@ public class TrackingFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-        log.debug("In pre-filter.");
-
-        // Play with the request
-//        RequestContext ctx = RequestContext.getCurrentContext();
-//        log.debug(ctx.toString());
-//        log.debug(ctx.getRequest().toString());
-//        log.debug(ctx.getZuulRequestHeaders().toString());
+        log.debug("In post-filter.");
 
         return null;
     }
