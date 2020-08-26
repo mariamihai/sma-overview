@@ -4,11 +4,13 @@ import com.thoughtmechanix.specialroutesservice.model.AbTestingRoute;
 import com.thoughtmechanix.specialroutesservice.repositories.AbTestingRouteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+@Profile("local-docker")
 @Component
 @RequiredArgsConstructor
-public class InitialData implements CommandLineRunner {
+public class InitialDataForLocalDocker implements CommandLineRunner {
 
     private final AbTestingRouteRepository repository;
 
@@ -25,6 +27,7 @@ public class InitialData implements CommandLineRunner {
                 .serviceName("organization-service")
                 .active("Y")
                 .endpoint("http://organization-new-service:8099")
+//                .endpoint("http://localhost:8099")
                 .weight(5)
                 .build();
 
