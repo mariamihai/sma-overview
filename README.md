@@ -21,3 +21,4 @@ Project Docker Image [here](https://hub.docker.com/repository/docker/mariamihai/
 
 ### Articles
 - [here](https://medium.com/@athulravindran/spring-cloud-config-server-discovery-first-vs-config-first-72cc6a56f471)
+- [Docker article](https://www.freecodecamp.org/news/how-to-get-a-docker-container-ip-address-explained-with-examples/)
