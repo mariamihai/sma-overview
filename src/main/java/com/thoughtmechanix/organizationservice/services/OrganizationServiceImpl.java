@@ -3,7 +3,7 @@ package com.thoughtmechanix.organizationservice.services;
 import com.thoughtmechanix.organizationservice.domain.Organization;
 import com.thoughtmechanix.organizationservice.exceptions.NotFoundException;
 import com.thoughtmechanix.organizationservice.repositories.OrganizationRepository;
-import com.thoughtmechanix.organizationservice.web.OrganizationMapper;
+import com.thoughtmechanix.organizationservice.web.mappers.OrganizationMapper;
 import com.thoughtmechanix.organizationservice.web.model.OrganizationDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

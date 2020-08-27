@@ -1,4 +1,4 @@
-package com.thoughtmechanix.organizationservice.web;
+package com.thoughtmechanix.organizationservice.web.mappers;
 
 import com.thoughtmechanix.organizationservice.domain.Organization;
 import com.thoughtmechanix.organizationservice.web.model.OrganizationDto;
