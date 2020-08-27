@@ -49,21 +49,6 @@ services:
       - local.env
     restart: on-failure
 
-  gateway-service:
-    image: mariamihai/sma-gateway-service:latest
-    container_name: gateway
-    ports:
-      - 5555:5555
-    depends_on:
-      - eureka
-      - config-service
-      - special-routes-service
-    environment:
-      SERVER_PORT: "5555"
-      SPRING_PROFILES_ACTIVE: "local-docker"
-      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
-    restart: on-failure
-
   organization-service-1:
     image: mariamihai/sma-organization-service:latest
     container_name: organization-1
@@ -99,7 +84,7 @@ services:
     restart: on-failure
 
   organization-new-service:
-    image: mariamihai/sma-organization-service:latest
+    image: mariamihai/sma-organization-new-service:latest
     container_name: organization-new
     ports:
       - 8099:8099
@@ -131,3 +116,33 @@ services:
     env_file:
       - local.env
     restart: on-failure
+
+
+  gateway-service:
+    image: mariamihai/sma-gateway-service:latest
+    container_name: gateway
+    ports:
+      - 5555:5555
+    depends_on:
+      - eureka
+      - config-service
+      - special-routes-service
+      - organization-service-1
+      - organization-service-2
+      - organization-new-service
+      - licensing-service
+    environment:
+      SERVER_PORT: "5555"
+      SPRING_PROFILES_ACTIVE: "local-docker"
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
+    restart: on-failure
+#    command: >
+#      /bin/sh -c "
+#        echo Waiting for config-service start...;
+#        while ! nc -z config-service 8888;
+#        do
+#          sleep 1;
+#        done;
+#        echo Connected!;
+#      "
+#     command: bash -c "sleep 2 && until ping -qc1 config-service; do sleep 1; done &>/dev/null"
