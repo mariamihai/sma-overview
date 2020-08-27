@@ -1,10 +1,10 @@
-package com.thoughtmechanix.aorganizationnewservice;
+package com.thoughtmechanix.organizationnewservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SmaOrganizationNewServiceApplicationTests {
+class OrganizationNewServiceApplicationTests {
 
     @Test
     void contextLoads() {
