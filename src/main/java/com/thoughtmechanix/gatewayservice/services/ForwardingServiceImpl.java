@@ -18,7 +18,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicHttpRequest;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.netflix.zuul.filters.ProxyRequestHelper;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -76,13 +75,8 @@ public class ForwardingServiceImpl implements ForwardingService {
     }
 
     @Override
-    public String buildRouteString(String oldEndpoint, String newEndpoint, String serviceName) {
-        int index = oldEndpoint.indexOf(serviceName);
-
-        String strippedRoute = oldEndpoint.substring(index + serviceName.length());
-
-        log.debug("Target route: " + String.format("%s/%s", newEndpoint, strippedRoute));
-        return String.format("%s/%s", newEndpoint, strippedRoute);
+    public String buildRouteString(String requestURI, String newEndpoint) {
+        return newEndpoint + requestURI;
     }
 
     @Override
@@ -107,9 +101,8 @@ public class ForwardingServiceImpl implements ForwardingService {
             response = forward(httpClient, verb, route, request, headers,
                     params, requestEntity);
             setResponse(response);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -135,10 +128,11 @@ public class ForwardingServiceImpl implements ForwardingService {
 
     private HttpResponse forward(HttpClient httpclient, String verb, String uri,
                                  HttpServletRequest request, MultiValueMap<String, String> headers,
-                                 MultiValueMap<String, String> params, InputStream requestEntity)  throws Exception {
-        Map<String, Object> info = this.helper.debug(verb, uri, headers, params, requestEntity);
-        URL host = new URL( uri );
+                                 MultiValueMap<String, String> params, InputStream requestEntity) throws Exception {
+        URL host = new URL(uri);
         HttpHost httpHost = getHttpHost(host);
+
+        setRouteHost(httpHost);
 
         HttpRequest httpRequest;
         int contentLength = request.getContentLength();
@@ -170,6 +164,10 @@ public class ForwardingServiceImpl implements ForwardingService {
 
             return forwardRequest(httpclient, httpHost, httpRequest);
         } finally { }
+    }
+
+    private void setRouteHost(HttpHost httpHost) throws Exception {
+        RequestContext.getCurrentContext().setRouteHost(new URL(httpHost.toString()));
     }
 
     private HttpHost getHttpHost(URL host) {

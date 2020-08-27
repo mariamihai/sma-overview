@@ -6,6 +6,6 @@ public interface ForwardingService {
 
     AbTestingRouteDto getAbRoutingInfo(String serviceName);
     boolean useSpecialRoute(AbTestingRouteDto testRoute);
-    String buildRouteString(String oldEndpoint, String newEndpoint, String serviceName);
+    String buildRouteString(String requestURI, String newEndpoint);
     void forwardToSpecialRoute(String route);
 }

@@ -37,14 +37,14 @@ public class SpecialRoutesFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-        RequestContext ctx = RequestContext.getCurrentContext();
+        log.debug("In route filter.");
 
+        RequestContext ctx = RequestContext.getCurrentContext();
         AbTestingRouteDto abTestRoute = forwardingService.getAbRoutingInfo(filterUtils.getServiceId());
 
         if (shouldForward(abTestRoute)) {
-            String route = forwardingService.buildRouteString(ctx.getRequest().getRequestURI(),
-                                                              abTestRoute.getEndpoint(),
-                                                              ctx.get("serviceId").toString());
+            String route = forwardingService.buildRouteString(ctx.get("requestURI").toString(),
+                                                              abTestRoute.getEndpoint());
 
             log.debug("Forwarding " + filterUtils.getServiceId() + " to " + route);
 
