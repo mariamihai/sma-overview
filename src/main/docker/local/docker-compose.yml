@@ -17,6 +17,7 @@ services:
     environment:
       SERVER_PORT: "8761"
     restart: on-failure
+
   config-service:
     image: mariamihai/sma-configuration-service:latest
     container_name: config
@@ -31,6 +32,38 @@ services:
     env_file:
       - local.env
     restart: on-failure
+
+  special-routes-service:
+    image: mariamihai/sma-special-routes-service:latest
+    container_name: special-routes
+    ports:
+      - 8070:8070
+    depends_on:
+      - eureka
+      - config-service
+    environment:
+      SEVER_PORT: "8070"
+      SPRING_PROFILES_ACTIVE: "local-docker"
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
+    env_file:
+      - local.env
+    restart: on-failure
+
+  gateway-service:
+    image: mariamihai/sma-gateway-service:latest
+    container_name: gateway
+    ports:
+      - 5555:5555
+    depends_on:
+      - eureka
+      - config-service
+      - special-routes-service
+    environment:
+      SERVER_PORT: "5555"
+      SPRING_PROFILES_ACTIVE: "local-docker"
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
+    restart: on-failure
+
   organization-service-1:
     image: mariamihai/sma-organization-service:latest
     container_name: organization-1
@@ -47,6 +80,7 @@ services:
     env_file:
       - local.env
     restart: on-failure
+
   organization-service-2:
     image: mariamihai/sma-organization-service:latest
     container_name: organization-2
@@ -63,6 +97,24 @@ services:
     env_file:
       - local.env
     restart: on-failure
+
+  organization-new-service:
+    image: mariamihai/sma-organization-service:latest
+    container_name: organization-new
+    ports:
+      - 8099:8099
+    depends_on:
+      - eureka
+      - config-service
+    #      - database
+    environment:
+      SERVER_PORT: "8099"
+      SPRING_PROFILES_ACTIVE: "local-docker"
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
+    env_file:
+      - local.env
+    restart: on-failure
+
   licensing-service:
     image: mariamihai/sma-licensing-service:latest
     container_name: licensing
