@@ -27,3 +27,5 @@ script:
 
   - docker push $TRAVIS_REPO_SLUG:latest
   - docker push $TRAVIS_REPO_SLUG:$TRAVIS_BUILD_NUMBER
+
+  - docker logout
