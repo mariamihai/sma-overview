@@ -10,13 +10,13 @@ The main project represents a licensing application.
 
 ### The microservices
 #### Developed microservices
-[Eureka Service](https://github.com/mariamihai/sma-eureka-service)
-[Config Service](https://github.com/mariamihai/sma-configuration-service) (repository used: [Git repo](https://github.com/mariamihai/sma-config-repo))
-[Gateway Service](https://github.com/mariamihai/sma-gateway-service)
-[Special Route Service](https://github.com/mariamihai/sma-special-routes-service)
-[Licensing Service](https://github.com/mariamihai/sma-licensing-service)
-[Organization Service](https://github.com/mariamihai/sma-organization-service)
-[New Organization Service](https://github.com/mariamihai/sma-organization-new-service)
+[Eureka Service](https://github.com/mariamihai/sma-eureka-service) <br/>
+[Config Service](https://github.com/mariamihai/sma-configuration-service) (repository used: [Git repo](https://github.com/mariamihai/sma-config-repo)) <br/>
+[Gateway Service](https://github.com/mariamihai/sma-gateway-service) <br/>
+[Special Route Service](https://github.com/mariamihai/sma-special-routes-service) <br/>
+[Licensing Service](https://github.com/mariamihai/sma-licensing-service) <br/>
+[Organization Service](https://github.com/mariamihai/sma-organization-service) <br/>
+[New Organization Service](https://github.com/mariamihai/sma-organization-new-service) <br/>
 
 #### Gateway development
 The Gateway project was developed with Zuul. Currently, Spring Cloud Zuul is in maintenance and Spring Cloud Gateway is the prefered way to develop the proxy. For an implementation of Spring Cloud Gateway check [this](https://github.com/mariamihai/udemy-sbm-brewery-gateway) project.
