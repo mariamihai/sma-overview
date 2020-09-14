@@ -26,13 +26,13 @@ For A/B Testing, a new Organization Service was added. In a real project, the di
 #### Default port mapping - for single host
 | Service Name | Port | 
 | --------| -----|
-|[Eureka Service](https://github.com/mariamihai/sma-eureka-service)|8761|
-|[Config Service](https://github.com/mariamihai/sma-configuration-service) (repository used: [Git repo](https://github.com/mariamihai/sma-config-repo))|8888|
-|[Gateway Service](https://github.com/mariamihai/sma-gateway-service)|5555|
-|[Special Route Service](https://github.com/mariamihai/sma-special-routes-service)|8070|
-|[Licensing Service](https://github.com/mariamihai/sma-licensing-service)|8080|
-|[Organization Service](https://github.com/mariamihai/sma-organization-service)|8090|
-|[New Organization Service](https://github.com/mariamihai/sma-organization-new-service)|8099|
+| [Eureka Service](https://github.com/mariamihai/sma-eureka-service) | 8761 |
+| [Config Service](https://github.com/mariamihai/sma-configuration-service) | 8888 |
+| [Gateway Service](https://github.com/mariamihai/sma-gateway-service) | 5555 |
+| [Special Route Service](https://github.com/mariamihai/sma-special-routes-service) | 8070 |
+| [Licensing Service](https://github.com/mariamihai/sma-licensing-service) | 8080 |
+| [Organization Service](https://github.com/mariamihai/sma-organization-service) | 8090 |
+| [New Organization Service](https://github.com/mariamihai/sma-organization-new-service) | 8099 |
 
 #### Docker images
 Automatic building was implemented for the microservices associated with this project.
