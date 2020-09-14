@@ -8,7 +8,7 @@ Spring Boot Microservice project.
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
 The project provides externalized configuration for the principal services: [Licensing Service](https://github.com/mariamihai/sma-licensing-service), [Organization Service](https://github.com/mariamihai/sma-organization-service) and [New Organization Service](https://github.com/mariamihai/sma-organization-new-service). 
-It uses a [Git repository](https://github.com/mariamihai/sma-config-repo)y for the properties files.
+It uses a [Git repository](https://github.com/mariamihai/sma-config-repo) for the properties files.
 
 An overview of all the projects involved can be found [here](https://github.com/mariamihai/sma-overview).
 
