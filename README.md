@@ -22,7 +22,7 @@ The main project represents a licensing application.
 The Gateway project was developed with Zuul. Currently, Spring Cloud Zuul is in maintenance and Spring Cloud Gateway is the prefered way to develop the proxy. For an implementation of Spring Cloud Gateway check [this](https://github.com/mariamihai/udemy-sbm-brewery-gateway) project.
 
 A new application was developed to add potential special routes, that will route traffic to microservices different than the ones already defined under the gateway project. This project is associated with a dynamic route filter on the gateway service, which checks the possibility of adding intelligence to the routing of the request.
-For Ab Testing, a new Organization Service was added. In a real project, the differences between the initial and the updated project might be important, but for the purpose of the current project, the only difference between the two is a "NEW::" String prefixing the name of the organization returned by each of the services.
+For A/B Testing, a new Organization Service was added. In a real project, the differences between the initial and the updated project might be important, but for the purpose of the current project, the only difference between the two is a "NEW::" String prefixing the name of the organization returned by each of the services.
 
 #### Additional applications needed
 For the needed applications I've used Docker containers.
@@ -32,8 +32,13 @@ For the needed applications I've used Docker containers.
 #### Default port mapping - for single host
 | Service Name | Port | 
 | --------| -----|
-|||
-
+|[Eureka Service](https://github.com/mariamihai/sma-eureka-service)|8761|
+|[Config Service](https://github.com/mariamihai/sma-configuration-service) (repository used: [Git repo](https://github.com/mariamihai/sma-config-repo))||
+|[Gateway Service](https://github.com/mariamihai/sma-gateway-service)|5555|
+|[Special Route Service](https://github.com/mariamihai/sma-special-routes-service)||
+|[Licensing Service](https://github.com/mariamihai/sma-licensing-service)||
+|[Organization Service](https://github.com/mariamihai/sma-organization-service)||
+|[New Organization Service](https://github.com/mariamihai/sma-organization-new-service)||
 
 #### Docker images
 Automatic building was implemented for the microservices associated with this project.
