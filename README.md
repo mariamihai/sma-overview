@@ -33,9 +33,9 @@ For the needed applications I've used Docker containers.
 | Service Name | Port | 
 | --------| -----|
 |[Eureka Service](https://github.com/mariamihai/sma-eureka-service)|8761|
-|[Config Service](https://github.com/mariamihai/sma-configuration-service) (repository used: [Git repo](https://github.com/mariamihai/sma-config-repo))||
+|[Config Service](https://github.com/mariamihai/sma-configuration-service) (repository used: [Git repo](https://github.com/mariamihai/sma-config-repo))|8888|
 |[Gateway Service](https://github.com/mariamihai/sma-gateway-service)|5555|
-|[Special Route Service](https://github.com/mariamihai/sma-special-routes-service)||
+|[Special Route Service](https://github.com/mariamihai/sma-special-routes-service)|8070|
 |[Licensing Service](https://github.com/mariamihai/sma-licensing-service)||
 |[Organization Service](https://github.com/mariamihai/sma-organization-service)||
 |[New Organization Service](https://github.com/mariamihai/sma-organization-new-service)||
