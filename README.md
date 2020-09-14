@@ -15,7 +15,7 @@ The project represents my implementation based on the "Spring Microservices in A
 
 The project provides service discovery and it is used by all other applications for registration and communication between themselves.
 
-An overview of all the projects involved can be found [here](https://github.com/mariamihai/sma-overview/edit/master/README.md).
+An overview of all the projects involved can be found [here](https://github.com/mariamihai/sma-overview).
 
 ## Docker images
 Automatic building was implemented for the microservices associated with this project.
