@@ -115,7 +115,7 @@ Calling the service to obtain license information based on an organization id an
     ```
 
 #### Save new license
-Creating a new license. Current, the endpoint is not implemented.
+Creating a new license. Currently, the endpoint is not implemented.
 
 #### Get licenses when fallback is used
 If, for example, the database is slower than usual then a fallback method is called to obtain a "default" license object. The method that creates the fallback object is `LicenseServiceImpl.buildFallbackLicenseList()`. The lincense obtained will have the next characteristics:
