@@ -34,7 +34,7 @@ server.port=8888
 ```
 - adding the secret String for encryption as an environment variable
 ```
-ENCRYPT_KEY=MySuperExtremelySecretKey
+encrypt.key=MySuperExtremelySecretKey
 ```
 
 ### Profiles
