@@ -4,12 +4,16 @@
 # Spring Microservices in Action - Special Routes Service
 Spring Boot Microservice project.
 
+  - [Description](#description)
+  - [Docker images](#docker-images)
+  - [Implementation details](#implementation-details)
+    - [Properties](#properties)
+    - [Profiles](#profiles)
 
 ## Description
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
-The project provides externalized configuration for the principal services: [Licensing Service](https://github.com/mariamihai/sma-licensing-service), [Organization Service](https://github.com/mariamihai/sma-organization-service) and [New Organization Service](https://github.com/mariamihai/sma-organization-new-service). 
-It uses a [Git repository](https://github.com/mariamihai/sma-config-repo) for the properties files.
+The service is used to provide alternative routes for known mapping routes in the [Gateway Service](https://github.com/mariamihai/sma-gateway-service).  
 
 An overview of all the projects involved can be found [here](https://github.com/mariamihai/sma-overview).
 
@@ -23,9 +27,9 @@ For simplicity, I am using the build numbers provided by Travis CI as the versio
 ```
 spring.application.name=special-routes-service
 ```
-- application server port (added as environment property)
+- application server port (added as environment variable)
 ```
-server.port=special-routes-service
+server.port=8070
 ```
 - adding the secret String for encryption as an environment variable
 ```
@@ -33,6 +37,4 @@ ENCRYPT_KEY=MySuperExtremelySecretKey
 ```
 
 ### Profiles
-- `native` when using own configuration
-- `git` when using the Git config-repo
-- `local` when running on local environment
+There is no active profile defined for the current project.
