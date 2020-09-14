@@ -32,6 +32,10 @@ spring.application.name=config-service
 ```
 server.port=8888
 ```
+- adding the secret String for encryption as an environment variable
+```
+ENCRYPT_KEY=MySuperExtremelySecretKey
+```
 
 ### Profiles
 - `native` when using own configuration
