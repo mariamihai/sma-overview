@@ -4,6 +4,12 @@
 # Spring Microservices in Action - Configuration Service
 Spring Boot Microservice project.
 
+  - [Description](#description)
+  - [Docker images](#docker-images)
+  - [Implementation details](#implementation-details)
+    - [Properties](#properties)
+    - [Profiles](#profiles)
+
 ## Description
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
