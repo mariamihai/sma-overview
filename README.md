@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.org/mariamihai/sma-licensing-service.svg?branch=master)](https://travis-ci.org/mariamihai/sma-licensing-service)
-
-[![Build Status](https://travis-ci.org/mariamihai/sma-organization-service.svg?branch=master)](https://travis-ci.org/mariamihai/sma-organization-service)
-[![Docker](https://img.shields.io/docker/v/mariamihai/sma-organization-service?sort=date)](https://hub.docker.com/r/mariamihai/sma-organization-service)
+[![Docker](https://img.shields.io/docker/v/mariamihai/sma-licensing-service?sort=date)](https://hub.docker.com/r/mariamihai/sma-licensing-service)
 
 # Spring Microservices in Action - Licensing Service
 Spring Boot Microservice project.
