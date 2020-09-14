@@ -54,7 +54,7 @@ Calling the service to obtain all licenses based on the organization id.
 
 Pagination is not implemented currently.
 
- * __URI:__ _v1/organizations/:organizationId/licenses/
+ * __URI:__ _v1/organizations/:organizationId/licenses/_
  * __Method:__ _GET_
 
  * __URL params:__ <br/>
@@ -71,7 +71,7 @@ Pagination is not implemented currently.
 #### Obtain license information
 Calling the service to obtain license information based on an organization id and license id.
 
- * __URI:__ _v1/organizations/:organizationId/licenses/:id/?clientType=:clientType
+ * __URI:__ _v1/organizations/:organizationId/licenses/:id/?clientType=:clientType_
  * __Method:__ _GET_
 
  * __URL params:__ <br/>
