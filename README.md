@@ -28,7 +28,7 @@ For simplicity, I am using the build numbers provided by Travis CI as the versio
 ### Development
 A new application was developed to add potential special routes, that will route traffic to microservices different than the ones already defined under the gateway project.
 [This project](https://github.com/mariamihai/sma-special-routes-service) is associated with a dynamic route filter on the gateway service, which checks the possibility of adding intelligence to the routing of the request.
-For Ab Testing, a new Organization Service was added. In a real project, the differences between the initial and the updated project might be important, but for the purpose of the current project, the only difference between the two is a "NEW::" String prefixing the name of the organization returned by each of the services.
+For A/B Testing, a new Organization Service was added. In a real project, the differences between the initial and the updated project might be important, but for the purpose of the current project, the only difference between the two is a "NEW::" String prefixing the name of the organization returned by each of the services.
 
 ### Properties
 - the name of the application, used by the other services 
