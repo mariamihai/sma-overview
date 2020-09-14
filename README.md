@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/mariamihai/sma-gateway-service.svg?branch=master)](https://travis-ci.org/mariamihai/sma-gateway-service)
-[![Docker](https://img.shields.io/docker/v/mariamihai/sma-eureka-service?sort=date)](https://hub.docker.com/r/mariamihai/sma-eureka-service)
+[![Docker](https://img.shields.io/docker/v/mariamihai/sma-gateway-service?sort=date)](https://hub.docker.com/r/mariamihai/sma-gateway-service)
 
 # Spring Microservices in Action - Gateway Service
 Spring Boot Microservice project.
