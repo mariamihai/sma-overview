@@ -1,24 +1,75 @@
 [![Build Status](https://travis-ci.org/mariamihai/sma-licensing-service.svg?branch=master)](https://travis-ci.org/mariamihai/sma-licensing-service)
 
+[![Build Status](https://travis-ci.org/mariamihai/sma-organization-service.svg?branch=master)](https://travis-ci.org/mariamihai/sma-organization-service)
+[![Docker](https://img.shields.io/docker/v/mariamihai/sma-organization-service?sort=date)](https://hub.docker.com/r/mariamihai/sma-organization-service)
+
 # Spring Microservices in Action - Licensing Service
+Spring Boot Microservice project.
+
+  - [Description](#description)
+  - [API Version](#api-version)
+  - [Docker images](#docker-images)
+  - [Implementation details](#implementation-details)
+    - [Properties](#properties)
+    - [Profiles](#profiles)
+  - [API calls](#api-calls)
+      - [Obtain all licenses](#obtain-all-licenses)
+      - [Obtain license information](#obtain-license-information)
+      - [Save new license](#save-new-license)
+      - [Get licenses when fallback is used](#get-licenses-when-fallback-is-used)
+
+## Description
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
+The main service of the project. Contains licensing information that can be used in correlation with the [Organization Service](https://github.com/mariamihai/sma-organization-service) and the [New Organization Service](https://github.com/mariamihai/sma-organization-new-service).
+
+An overview of all the projects involved can be found [here](https://github.com/mariamihai/sma-overview).
+
 ## API Version
-Currently the application is at _v1_.
+_V1_ is the current implementation. No changes to the project are expected to be made in the future that will affect the existing endpoints.
 
-## Environment properties
-- server.port is set as environment properties to force setting of port in docker-compose (default 8080)
+## Docker images
+Automatic building was implemented for the microservices associated with this project.
+For simplicity, I am using the build numbers provided by Travis CI as the version number for each different image constructed.
 
-## Run
-Run with encryption key or from the docker-compose file (currently in the Configuration Service).
+## Implementation details
+### Properties
+- the name of the application, used by the other services 
 ```
-mvn spring-boot:run -Dspring-boot.run.arguments=--encrypt.key=MySuperExtremelySecretKey
+spring.application.name=licensing-service
 ```
-### Running locally
-Profile active = local
+- application server port
+```
+server.port=8080
+```
+- adding the secret String for encryption as an environment variable
+```
+encrypt.key=MySuperExtremelySecretKey
+```
 
+### Profiles
+Profiles active: `local`.
 
 ### API calls
+#### Obtain all licenses
+Calling the service to obtain all licenses based on the organization id.
+
+Pagination is not implemented currently.
+
+ * __URI:__ _v1/organizations/:organizationId/licenses/
+ * __Method:__ _GET_
+
+ * __URL params:__ <br/>
+    * required: <br/>
+        `organizationId=[uuid]` <br/>
+    * optional: - <br/>
+  
+ * __Success response:__
+    * Code: 200 <br/>
+    * Content: TODO - will be added
+    ```
+    ```
+
 #### Obtain license information
 Calling the service to obtain license information based on an organization id and license id.
 
@@ -29,6 +80,10 @@ Calling the service to obtain license information based on an organization id an
     * required: <br/>
         `organizationId=[uuid]` <br/>
         `id=[uuid]`
+    * optional: - <br/>
+    
+ * __Query params:__ <br/>
+    * required: - <br/>
     * optional: <br/>
         `clientType=[uuid]` <br/>
         Possible values: `discovery` (default), `ribbon`, `feign`.
@@ -57,10 +112,17 @@ Calling the service to obtain license information based on an organization id an
     }
     ```
 
-## Docker Image
-Project Docker Image [here](https://hub.docker.com/repository/docker/mariamihai/sma-licensing-service).
+#### Save new license
+Creating a new license. Current, the endpoint is not implemented.
 
-## Articles
-- [Feign error handling](https://www.appsdeveloperblog.com/feign-error-handling-with-errordecoder/)
-- [Hystrix Configuration](https://github.com/Netflix/Hystrix/wiki/Configuration)
-- [Resilience4j](https://github.com/resilience4j/resilience4j)
+#### Get licenses when fallback is used
+If, for example, the database is slower than usual then a fallback method is called to obtain a "default" license object. The method that creates the fallback object is `LicenseServiceImpl.buildFallbackLicenseList()`. The lincense obtained will have the next characteristics:
+    ```
+    {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "productName": "Sorry, no licensing information currently available",
+        "type": null,
+        "organizationId": "provided-organization-id"
+    }
+    ```
+This is implemented when obtaining all licenses based on an organization id. The result will still be an list, as expected.
