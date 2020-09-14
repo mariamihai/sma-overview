@@ -39,6 +39,10 @@ spring.application.name=gateway-service
 ```
 server.port=5555
 ```
+- adding the secret String for encryption as an environment variable
+```
+encrypt.key=MySuperExtremelySecretKey
+```
 
 ### Profiles
 Active profile: `local`.
