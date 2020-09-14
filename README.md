@@ -70,7 +70,7 @@ Pagination currently is not implemented.
     * optional: - <br/>
         
  * __Success response:__
-    * Code: 200 <br/>
+    * Code: 200 OK <br/>
     * Content: TODO - will be added
     ```
     ```
@@ -91,7 +91,7 @@ Obtain an organization based on its organization id.
     * optional: - <br/>
         
  * __Success response:__
-    * Code: 200 <br/>
+    * Code: 200 OK <br/>
     * Content: TODO - will be added
     ```
     ```
@@ -112,13 +112,13 @@ Create a new organization.
  
  * __Data params:__ <br/>
     * required: <br/>
-            organizationDto=[OrganizationDto] TODO - will be added
-            ``` 
-            ```
+        organizationDto=[OrganizationDto] TODO - will be added <br/>
+         ``` 
+         ```
     * optional: - <br/>
 
  * __Success response:__
-    * Code: 200 <br/>
+    * Code: 200 OK <br/>
     * Content: TODO - will be added
     ```
     ```
@@ -140,13 +140,13 @@ Modify information associated with an existing organization.
  
  * __Data params:__ <br/>
     * required: <br/>
-            organizationDto=[OrganizationDto] TODO - will be added
-            ``` 
-            ```
+        organizationDto=[OrganizationDto] TODO - will be added <br/>
+         ``` 
+         ```
     * optional: - <br/>
 
  * __Success response:__
-    * Code: 200 <br/>
+    * Code: 200 OK <br/>
     * Content: TODO - will be added
     ```
     ```
