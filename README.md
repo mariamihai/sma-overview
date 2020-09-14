@@ -4,6 +4,18 @@
 # Spring Microservices in Action - New Organization Service
 Spring Boot Microservice project.
 
+  - [Description](#description)
+  - [Docker images](#docker-images)
+  - [Implementation details](#implementation-details)
+    - [Properties](#properties)
+    - [Profiles](#profiles)
+  - [API calls](#api-calls)
+    - [Obtain all organizations](#obtain-all-organizations)
+    - [Obtain organization information](#obtain-organization-information)
+    - [Save new organization](#save-new-organization)
+    - [Update existing organization](#update-existing-organization)
+    - [Delete Organization](#delete-organization)
+
 ## Description
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
@@ -32,8 +44,125 @@ server.port=8099
 ```
 - adding the secret String for encryption as an environment variable
 ```
-ENCRYPT_KEY=MySuperExtremelySecretKey
+encrypt.key=MySuperExtremelySecretKey
 ```
 
 ### Profiles
 Profiles active: `local`.
+
+## API calls
+### Obtain all organizations
+Obtaining the information associated with all existing organizations. This was added as a testing helper and probably should be removed in a production environment.
+
+Pagination currently is not implemented.
+
+ * __URI:__ _v1/organizations/_
+ * __Method:__ _GET_
+
+ * __URL params:__ <br/>
+    * required: - <br/>
+    * optional: - <br/>
+    
+ * __Query params:__ <br/>
+    * required: - <br/>
+    * optional: - <br/>
+        
+ * __Success response:__
+    * Code: 200 OK <br/>
+    * Content: TODO - will be added
+    ```
+    ```
+ 
+### Obtain organization information
+Obtain an organization based on its organization id.
+
+ * __URI:__ _v1/organizations/:id_
+ * __Method:__ _GET_
+
+ * __URL params:__ <br/>
+    * required: <br/>
+        `id=[uuid]`
+    * optional: - <br/>
+    
+ * __Query params:__ <br/>
+    * required: - <br/>
+    * optional: - <br/>
+        
+ * __Success response:__
+    * Code: 200 OK <br/>
+    * Content: TODO - will be added
+    ```
+    ```
+
+### Save new organization
+Create a new organization.
+
+ * __URI:__ _v1/organizations/_
+ * __Method:__ _POST_
+
+ * __URL params:__ <br/>
+    * required: - <br/>
+    * optional: - <br/>
+    
+ * __Query params:__ <br/>
+    * required: - <br/>
+    * optional: - <br/>
+ 
+ * __Data params:__ <br/>
+    * required: <br/>
+        organizationDto=[OrganizationDto] TODO - will be added <br/>
+         ``` 
+         ```
+    * optional: - <br/>
+
+ * __Success response:__
+    * Code: 200 OK <br/>
+    * Content: TODO - will be added
+    ```
+    ```
+
+### Update existing organization
+Modify information associated with an existing organization.
+
+ * __URI:__ _v1/organizations/:organizationId_
+ * __Method:__ _PUT_
+
+ * __URL params:__ <br/>
+    * required: <br/>
+        `organizationId=[uuid]` <br/>
+    * optional: - <br/>
+    
+ * __Query params:__ <br/>
+    * required: - <br/>
+    * optional: - <br/>
+ 
+ * __Data params:__ <br/>
+    * required: <br/>
+        organizationDto=[OrganizationDto] TODO - will be added <br/>
+         ``` 
+         ```
+    * optional: - <br/>
+
+ * __Success response:__
+    * Code: 200 OK <br/>
+    * Content: TODO - will be added
+    ```
+    ```
+
+### Delete Organization
+Remove existing organization.
+
+ * __URI:__ _v1/organizations/:organizationId_
+ * __Method:__ _DELETE_
+
+ * __URL params:__ <br/>
+    * required: <br/>
+        `organizationId=[uuid]` <br/>
+    * optional: - <br/>
+    
+ * __Query params:__ <br/>
+    * required: - <br/>
+    * optional: - <br/>
+
+ * __Success response:__
+    * Code: 204 NO CONTENT <br/>
