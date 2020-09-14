@@ -52,7 +52,7 @@ Profiles active: `local`.
 #### Obtain all licenses
 Calling the service to obtain all licenses based on the organization id.
 
-Pagination is not implemented currently.
+Pagination currently is not implemented.
 
  * __URI:__ _v1/organizations/:organizationId/licenses/_
  * __Method:__ _GET_
@@ -61,7 +61,11 @@ Pagination is not implemented currently.
     * required: <br/>
         `organizationId=[uuid]` <br/>
     * optional: - <br/>
-  
+    
+ * __Query params:__ <br/>
+    * required: - <br/>
+    * optional: - <br/>
+        
  * __Success response:__
     * Code: 200 <br/>
     * Content: TODO - will be added
