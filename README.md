@@ -119,6 +119,7 @@ Creating a new license. Currently, the endpoint is not implemented.
 
 #### Get licenses when fallback is used
 If, for example, the database is slower than usual then a fallback method is called to obtain a "default" license object. The method that creates the fallback object is `LicenseServiceImpl.buildFallbackLicenseList()`. The lincense obtained will have the next characteristics:
+
     ```
     {
         "id": "00000000-0000-0000-0000-000000000000",
@@ -127,4 +128,5 @@ If, for example, the database is slower than usual then a fallback method is cal
         "organizationId": "provided-organization-id"
     }
     ```
+    
 This is implemented when obtaining all licenses based on an organization id. The result will still be an list, as expected.
