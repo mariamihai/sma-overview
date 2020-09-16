@@ -1,5 +1,6 @@
 package com.thoughtmechanix.smasecurityservice.security;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -10,11 +11,13 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
+    @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
     @Override
+    @Bean
     public UserDetailsService userDetailsServiceBean() throws Exception {
         return super.userDetailsServiceBean();
     }
