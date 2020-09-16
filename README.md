@@ -50,7 +50,9 @@ encrypt.key=MySuperExtremelySecretKey
 ```
 
 ### Profiles
-Profiles active: `local`.
+Profiles active: 
+- `local` when running on local environment
+- `local-docker` when running on Docker (not production ready environment)
 
 ## API calls
 ### Obtain all organizations
