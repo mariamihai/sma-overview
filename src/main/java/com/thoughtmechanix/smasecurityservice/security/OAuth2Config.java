@@ -1,4 +1,4 @@
-package com.thoughtmechanix.smasecurityservice.config;
+package com.thoughtmechanix.smasecurityservice.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
