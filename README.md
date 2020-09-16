@@ -41,3 +41,4 @@ encrypt.key=MySuperExtremelySecretKey
 - `native` when using own configuration
 - `git` when using the Git config-repo
 - `local` when running on local environment
+- `local-docker` when running on Docker (not production ready environment)
