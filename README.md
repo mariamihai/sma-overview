@@ -45,4 +45,6 @@ encrypt.key=MySuperExtremelySecretKey
 ```
 
 ### Profiles
-Active profile: `local`.
+Active profile: 
+- `local` when running on local environment
+- `local-docker` when running on Docker (not production ready environment)
