@@ -1,6 +1,5 @@
 package com.thoughtmechanix.organizationservice.web.controller;
 
-import com.thoughtmechanix.organizationservice.domain.Organization;
 import com.thoughtmechanix.organizationservice.services.OrganizationService;
 import com.thoughtmechanix.organizationservice.web.model.OrganizationDto;
 import lombok.RequiredArgsConstructor;
