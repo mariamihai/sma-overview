@@ -50,8 +50,8 @@ Profiles active:
 - `local` when running on local environment
 - `local-docker` when running on Docker (not production ready environment)
 
-### API calls
-#### Obtain all licenses
+## API calls
+### Obtain all licenses
 Calling the service to obtain all licenses based on the organization id.
 
 Pagination currently is not implemented.
@@ -74,7 +74,7 @@ Pagination currently is not implemented.
     ```
     ```
 
-#### Obtain license information
+### Obtain license information
 Calling the service to obtain license information based on an organization id and license id.
 
  * __URI:__ _v1/organizations/:organizationId/licenses/:id/?clientType=:clientType_
@@ -116,10 +116,10 @@ Calling the service to obtain license information based on an organization id an
     }
     ```
 
-#### Save new license
+### Save new license
 Creating a new license. Currently, the endpoint is not implemented.
 
-#### Get licenses when fallback is used
+### Get licenses when fallback is used
 If, for example, the database is slower than usual then a fallback method is called to obtain a "default" license object. The method that creates the fallback object is `LicenseServiceImpl.buildFallbackLicenseList()`. The lincense obtained will have the next characteristics:
 
     ```
