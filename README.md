@@ -2,6 +2,15 @@
 # Spring Microservices in Action - Security Service
 Spring Boot Microservice project.
 
+  - [Description](#description)
+  - [Docker images](#docker-images)
+  - [Implementation details](#implementation-details)
+    - [Properties](#properties)
+    - [Profiles](#profiles)
+  - [API calls](#api-calls)
+    - [Credential validation](#credential-validation)
+    - [User endpoint to validate the token and retrieve the user information](#user-endpoint-to-validate-the-token-and-retrieve-the-user-information)
+
 ## Description
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
@@ -65,7 +74,7 @@ There is no active profile defined for the current project.
  
     * __Response:__
         * Code: 401 Unauthorized <br/>
-        * Content: TODO - will be added
+        * Content:
         ```
         {
             "error": "unauthorized",
