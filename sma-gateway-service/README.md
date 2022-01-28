@@ -36,7 +36,7 @@ For simplicity, I am using the build numbers provided by Travis CI as the versio
 A new application was developed to add potential special routes, that will route traffic to microservices different than the 
 ones already defined under the gateway project.
 
-[This project](../../../sma-special-routes-service) is associated with a dynamic route filter on the gateway service, which 
+[This project](../sma-special-routes-service) is associated with a dynamic route filter on the gateway service, which 
 checks the possibility of adding intelligence to the routing of the request.
 
 For A/B Testing, a new Organization Service was added. In a real project, the differences between the initial and the 

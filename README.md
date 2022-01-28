@@ -50,3 +50,8 @@ a "NEW::" String prefixing the name of the organization returned by each of the 
 Automatic building was implemented for the microservices associated with this project.
 
 For simplicity, I am using the build numbers provided by Travis CI as the version number for each different image constructed.
+
+## Status
+
+**[COMPLETED]** - I am setting a personal status of "Completed" and will probably not update this repository in the near 
+future as this was a learning project.
