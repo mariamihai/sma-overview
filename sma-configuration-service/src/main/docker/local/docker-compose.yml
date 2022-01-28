@@ -1,0 +1,81 @@
+version: '3'
+services:
+  #  database:
+  #    image: postgres
+  #    container_name: database
+  #    ports:
+  #      - "5432:5432"
+  #    environment:
+  #      POSTGRES_USER: "postgres"
+  #      POSTGRES_PASSWORD: "p0stgr@s"
+  #      POSTGRES_DB: "eagle_eye_local"
+  eureka:
+    image: mariamihai/sma-eureka-service:latest
+    container_name: eureka
+    ports:
+      - 8761:8761
+    environment:
+      SERVER_PORT: "8761"
+    restart: on-failure
+  config-service:
+    image: mariamihai/sma-configuration-service:latest
+    container_name: config
+    ports:
+      - 8888:8888
+    depends_on:
+      - eureka
+    environment:
+      SERVER_PORT: "8888"
+      SPRING_PROFILES_ACTIVE: "native, local-docker"
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
+    env_file:
+      - local.env
+    restart: on-failure
+  organization-service-1:
+    image: mariamihai/sma-organization-service:latest
+    container_name: organization-1
+    ports:
+      - 8090:8090
+    depends_on:
+      - eureka
+      - config-service
+    #      - database
+    environment:
+      SERVER_PORT: "8090"
+      SPRING_PROFILES_ACTIVE: "local-docker"
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
+    env_file:
+      - local.env
+    restart: on-failure
+  organization-service-2:
+    image: mariamihai/sma-organization-service:latest
+    container_name: organization-2
+    ports:
+      - 8091:8091
+    depends_on:
+      - eureka
+      - config-service
+    #      - database
+    environment:
+      SERVER_PORT: "8091"
+      SPRING_PROFILES_ACTIVE: "local-docker"
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
+    env_file:
+      - local.env
+    restart: on-failure
+  licensing-service:
+    image: mariamihai/sma-licensing-service:latest
+    container_name: licensing
+    ports:
+      - 8080:8080
+    depends_on:
+      - eureka
+      - config-service
+#      - database
+    environment:
+      SEVER_PORT: "8080"
+      SPRING_PROFILES_ACTIVE: "local-docker"
+      SERVICE_URL_DEFAULT_ZONE: http://eureka:8761/eureka/
+    env_file:
+      - local.env
+    restart: on-failure
