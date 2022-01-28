@@ -1,4 +1,4 @@
-######################
+#####################
 # Project Specific
 ######################
 /build/www/**
@@ -140,6 +140,4 @@ Desktop.ini
 .eslintcache
 /.idea/
 /target/
-=======
-/.idea/
->>>>>>> OrganizationService/master
+/.mvn/
