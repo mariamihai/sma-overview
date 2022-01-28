@@ -2,6 +2,7 @@
 [![Docker](https://img.shields.io/docker/v/mariamihai/sma-organization-new-service?sort=date)](https://hub.docker.com/r/mariamihai/sma-organization-new-service)
 
 # Spring Microservices in Action - New Organization Service
+
 Spring Boot Microservice project.
 
   - [Description](#description)
@@ -17,23 +18,31 @@ Spring Boot Microservice project.
     - [Delete Organization](#delete-organization)
 
 ## Description
+
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
-The service represents an alternative to the initial [Organization Service](https://github.com/mariamihai/sma-organization-service).
-A dynamic route filter was added in the [Gateway Service](https://github.com/mariamihai/sma-gateway-service) to evaluate new requests. Based on a call to the 
-[Special Route Service](https://github.com/mariamihai/sma-special-routes-service), the possibility of using of the initial Organization Service or the current project 
-is evaluated.
-In a real project, the differences between the initial and the updated project might be important, but for the purpose of the current project, the only difference between 
-the two is a "NEW::" String prefixing the name of the organization returned by each of the services.
+The service represents an alternative to the initial [Organization Service](../../../sma-organization-service).
 
-An overview of all the projects involved can be found [here](https://github.com/mariamihai/sma-overview).
+A dynamic route filter was added in the [Gateway Service](../../../sma-gateway-service) to evaluate new requests. 
+Based on a call to the [Special Route Service](../../../sma-special-routes-service), the possibility of using of the 
+initial Organization Service or the current project is evaluated.
+
+In a real project, the differences between the initial and the updated project might be important, but for the purpose 
+of the current project, the only difference between the two is a "NEW::" String prefixing the name of the organization 
+returned by each of the services.
+
+An overview of all the projects involved can be found [here](../../..).
 
 ## Docker images
+
 Automatic building was implemented for the microservices associated with this project.
+
 For simplicity, I am using the build numbers provided by Travis CI as the version number for each different image constructed.
 
 ## Implementation details
+
 ### Properties
+
 - the name of the application, used by the other services 
 ```
 spring.application.name=organization-new-service
@@ -48,13 +57,17 @@ encrypt.key=MySuperExtremelySecretKey
 ```
 
 ### Profiles
+
 Profiles active: 
 - `local` when running on local environment
 - `local-docker` when running on Docker (not production ready environment)
 
 ## API calls
+
 ### Obtain all organizations
-Obtaining the information associated with all existing organizations. This was added as a testing helper and probably should be removed in a production environment.
+
+Obtaining the information associated with all existing organizations. This was added as a testing helper and probably 
+should be removed in a production environment.
 
 Pagination currently is not implemented.
 
@@ -76,6 +89,7 @@ Pagination currently is not implemented.
     ```
  
 ### Obtain organization information
+
 Obtain an organization based on its organization id.
 
  * __URI:__ _v1/organizations/:id_
@@ -97,6 +111,7 @@ Obtain an organization based on its organization id.
     ```
 
 ### Save new organization
+
 Create a new organization.
 
  * __URI:__ _v1/organizations/_
@@ -124,6 +139,7 @@ Create a new organization.
     ```
 
 ### Update existing organization
+
 Modify information associated with an existing organization.
 
  * __URI:__ _v1/organizations/:organizationId_
@@ -152,6 +168,7 @@ Modify information associated with an existing organization.
     ```
 
 ### Delete Organization
+
 Remove existing organization.
 
  * __URI:__ _v1/organizations/:organizationId_
