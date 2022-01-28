@@ -2,6 +2,7 @@
 [![Docker](https://img.shields.io/docker/v/mariamihai/sma-configuration-service?sort=date)](https://hub.docker.com/r/mariamihai/sma-configuration-service)
 
 # Spring Microservices in Action - Configuration Service
+
 Spring Boot Microservice project.
 
   - [Description](#description)
@@ -11,11 +12,12 @@ Spring Boot Microservice project.
     - [Profiles](#profiles)
 
 ## Description
+
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
-The project provides externalized configuration for the principal services: [Licensing Service](../../../sma-licensing-service), 
-[Organization Service](../../../sma-organization-service) and [New Organization Service](../../../sma-organization-new-service). 
-It uses a [Git repository](../../../sma-config-repo) for the properties files.
+The project provides externalized configuration for the principal services: [Licensing Service](../sma-licensing-service), 
+[Organization Service](../sma-organization-service) and [New Organization Service](../sma-organization-new-service). 
+It uses a [Git repository](../sma-config-repo) for the properties files.
 
 An overview of all the projects involved can be found [here](../../..).
 

@@ -16,8 +16,8 @@ Spring Boot Microservice project.
 
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
-The project represents the gateway service for the [Licensing Service](../../../sma-licensing-service), [Organization Service](../../../sma-organization-service) 
-and [New Organization Service](../../../sma-organization-new-service).
+The project represents the gateway service for the [Licensing Service](../sma-licensing-service), [Organization Service](../sma-organization-service) 
+and [New Organization Service](../sma-organization-new-service).
 
 The current project was developed with Zuul. Currently, Spring Cloud Zuul is in maintenance and Spring Cloud Gateway is 
 the preffered way to develop the proxy. For an implementation of Spring Cloud Gateway check [this](https://github.com/mariamihai/udemy-sbm-brewery-gateway) project.

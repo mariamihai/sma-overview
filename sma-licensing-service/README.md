@@ -22,7 +22,7 @@ Spring Boot Microservice project.
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
 The main service of the project. Contains licensing information that can be used in correlation with the 
-[Organization Service](../../../sma-organization-service) and the [New Organization Service](../../../sma-organization-new-service).
+[Organization Service](../sma-organization-service) and the [New Organization Service](../sma-organization-new-service).
 
 An overview of all the projects involved can be found [here](../../..).
 

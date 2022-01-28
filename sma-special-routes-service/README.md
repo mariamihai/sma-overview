@@ -15,7 +15,7 @@ Spring Boot Microservice project.
 
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
-The service is used to provide alternative routes for known mapping routes in the [Gateway Service](../../../sma-gateway-service).  
+The service is used to provide alternative routes for known mapping routes in the [Gateway Service](../sma-gateway-service).  
 
 An overview of all the projects involved can be found [here](../../..).
 

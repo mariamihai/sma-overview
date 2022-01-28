@@ -21,10 +21,10 @@ Spring Boot Microservice project.
 
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
-The service represents an alternative to the initial [Organization Service](../../../sma-organization-service).
+The service represents an alternative to the initial [Organization Service](../sma-organization-service).
 
-A dynamic route filter was added in the [Gateway Service](../../../sma-gateway-service) to evaluate new requests. 
-Based on a call to the [Special Route Service](../../../sma-special-routes-service), the possibility of using of the 
+A dynamic route filter was added in the [Gateway Service](../sma-gateway-service) to evaluate new requests. 
+Based on a call to the [Special Route Service](../sma-special-routes-service), the possibility of using of the 
 initial Organization Service or the current project is evaluated.
 
 In a real project, the differences between the initial and the updated project might be important, but for the purpose 

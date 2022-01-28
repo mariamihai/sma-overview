@@ -22,10 +22,10 @@ Spring Boot Microservice project.
 
 The project represents my implementation based on the "Spring Microservices in Action" book.
 
-The service contains organization data used by the [Licensing Service](../../../sma-licensing-service).
-An alternative to this service is [New Organization Service](../../../sma-organization-new-service). The two are used by 
-the [Gateway Service](../../../sma-gateway-service) to route the traffic to multiple services based on the route preferences 
-provided by the [Special Route Service](../../../sma-special-routes-service).
+The service contains organization data used by the [Licensing Service](../sma-licensing-service).
+An alternative to this service is [New Organization Service](../sma-organization-new-service). The two are used by 
+the [Gateway Service](../sma-gateway-service) to route the traffic to multiple services based on the route preferences 
+provided by the [Special Route Service](../sma-special-routes-service).
 
 In a real project, the differences between the initial and the updated project might be important, but for the purpose of 
 the current project, the only difference between the two is a "NEW::" String prefixing the name of the organization returned by each of the services.
